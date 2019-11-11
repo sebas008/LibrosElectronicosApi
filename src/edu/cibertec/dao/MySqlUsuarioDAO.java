@@ -36,8 +36,6 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 			// TODO Auto-generated catch block
 			System.out.println("Se suscito la siguiente Excepcion: " + e.getMessage());
 		}
-		MySQLConexion.closeConexion(cnx);
-		MySQLConexion.closeStatement(pstmt);
 		return objUsuario;
 	}
 }
