@@ -15,6 +15,7 @@ import edu.cibertec.beans.MntProveedor;
 import edu.cibertec.beans.MntTipoCambio;
 import edu.cibertec.beans.TblCondPago;
 import edu.cibertec.beans.TblMoneda;
+import edu.cibertec.beans.TblTipoCli;
 import edu.cibertec.beans.TblTipoCom;
 import edu.cibertec.beans.TblTipoPer;
 import edu.cibertec.service.GestionConPago;
@@ -23,6 +24,7 @@ import edu.cibertec.service.GestionFacturaVentas;
 import edu.cibertec.service.GestionMntProveedor;
 import edu.cibertec.service.GestionMntTipoCambio;
 import edu.cibertec.service.GestionTblMoneda;
+import edu.cibertec.service.GestionTblTipoCli;
 import edu.cibertec.service.GestionTblTipoCom;
 import edu.cibertec.service.GestionTblTipoPer;
 
@@ -183,5 +185,22 @@ public class ServiciosGet {
 		}
 		return null;
 	}
+	
+	// http://localhost:8081/librosElectronicosApi/tipoget/tipCli
+	@GET
+	@Path("/tipCli")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TblTipoCli> obtenerTipoCliente() {
+		try {
+			ArrayList<TblTipoCli> tipoCli = new GestionTblTipoCli().listado();
+			return tipoCli;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+
+	}
+	
+	
 	
 }
