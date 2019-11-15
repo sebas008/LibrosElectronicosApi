@@ -1,6 +1,10 @@
 package edu.cibertec.serviciosPost;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,6 +18,7 @@ import edu.cibertec.beans.TblCondPago;
 import edu.cibertec.beans.TblMoneda;
 import edu.cibertec.beans.TblTipoCom;
 import edu.cibertec.beans.TblTipoPer;
+import edu.cibertec.beans.UsuarioDTO;
 import edu.cibertec.service.GestionConPago;
 import edu.cibertec.service.GestionFacturaCompra;
 import edu.cibertec.service.GestionFacturaVentas;
@@ -22,6 +27,7 @@ import edu.cibertec.service.GestionMntTipoCambio;
 import edu.cibertec.service.GestionTblMoneda;
 import edu.cibertec.service.GestionTblTipoCom;
 import edu.cibertec.service.GestionTblTipoPer;
+import edu.cibertec.service.GestionUsuario;
 
 @Path("/tipopost")
 public class RestPost {
@@ -240,5 +246,44 @@ public class RestPost {
 		return "Registro de factura venta correctamente";
 
 	}
-		
+	
+	// http://localhost:8081/librosElectronicosApi/tipopost/registrarUsuario
+		@POST
+		@Path("/registrarUsuario")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarUsuario(UsuarioDTO u) {
+			System.out.println("Entrando al servicio Post-registrarUsuario()");
+			try {
+				new GestionUsuario().registrar(u);
+
+				System.out.println("Codigo: " + u.getCod_usu());
+				System.out.println("Clave: " + u.getClave_usu());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de usuario correctamente";
+
+		}
+	
+	
+/*
+	// http://localhost:8081/librosElectronicosApi/tipoget/usuario
+	@GET
+	@Path("/usuario")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<UsuarioDTO> obtenerUsuario() {
+		try {
+			ArrayList<UsuarioDTO> usu = new GestionUsuario().validarLogueo();
+			return usu;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+
+	}
+*/
+	
 }

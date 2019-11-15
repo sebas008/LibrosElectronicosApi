@@ -38,4 +38,37 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 		}
 		return objUsuario;
 	}
+
+	@Override
+	public int registrar(UsuarioDTO u) {
+		int rs = 0;
+		Connection con = null;
+		PreparedStatement pst = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "insert into usuarios values (?,?);";
+			pst = con.prepareStatement(sql);
+
+			pst.setString(1, u.getCod_usu());
+			pst.setString(2, u.getClave_usu());
+
+			rs = pst.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Se suscito la siguiente Excepcion: " + e.getMessage());
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e2) {
+				System.out.println("Error al cerrar: " + e2.getMessage());
+			}
+		}
+
+		return rs;
+	}
+
 }
