@@ -29,7 +29,7 @@ import edu.cibertec.service.GestionTblTipoCom;
 import edu.cibertec.service.GestionTblTipoPer;
 
 @Path("/tipoget")
-public class ServiciosGet {
+public class RestGet {
 
 	// http://localhost:8081/librosElectronicosApi/tipoget/condPago
 	@GET
