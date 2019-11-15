@@ -17,6 +17,7 @@ import edu.cibertec.beans.TblMoneda;
 import edu.cibertec.beans.TblTipoCli;
 import edu.cibertec.beans.TblTipoCom;
 import edu.cibertec.beans.TblTipoPer;
+import edu.cibertec.beans.UsuarioDTO;
 import edu.cibertec.service.GestionConPago;
 import edu.cibertec.service.GestionFacturaCompra;
 import edu.cibertec.service.GestionFacturaVentas;
@@ -26,6 +27,7 @@ import edu.cibertec.service.GestionTblMoneda;
 import edu.cibertec.service.GestionTblTipoCli;
 import edu.cibertec.service.GestionTblTipoCom;
 import edu.cibertec.service.GestionTblTipoPer;
+import edu.cibertec.service.GestionUsuario;
 
 @Path("/tipoget")
 public class RestGet {
@@ -91,21 +93,21 @@ public class RestGet {
 		return null;
 	}
 	
-/*
+
 	// http://localhost:8081/librosElectronicosApi/tipoget/usuario
 	@GET
 	@Path("/usuario")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<UsuarioDTO> obtenerUsuario() {
 		try {
-			ArrayList<UsuarioDTO> usu = new GestionUsuario().validarLogueo(cod_usu, clave_usu);
+			ArrayList<UsuarioDTO> usu = new GestionUsuario().validarLogueo();
 			return usu;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return null;
 
-	}*/
+	}
 
 
 	// http://localhost:8081/librosElectronicosApi/tipoget/tipoPer
