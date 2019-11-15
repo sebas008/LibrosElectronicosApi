@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -76,16 +75,15 @@ public class RestGet {
 
 	}
 
-	// http://localhost:8081/librosElectronicosApi/tipoget/facturaCompra/20171000/10181439373/01/SOL
+	// http://localhost:8081/librosElectronicosApi/tipoget/facturaCompra
 	@GET
-	@Path("/facturaCompra/{periodo}/{codpro}/{tipodoc}/{moneda}")
+	@Path("/facturaCompra")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<ClFacturaCompra> facturCompra(@PathParam("periodo") String periodo,
+	public ArrayList<ClFacturaCompra> facturCompra(/*@PathParam("periodo") String periodo,
 			@PathParam("codpro") String codpro, @PathParam("tipodoc") String tipodoc,
-			@PathParam("moneda") String moneda) {
+			@PathParam("moneda") String moneda*/) {
 		try {
-			ArrayList<ClFacturaCompra> facCom = new GestionFacturaCompra().reporteCompras(periodo, codpro, tipodoc,
-					moneda);
+			ArrayList<ClFacturaCompra> facCom = new GestionFacturaCompra().listado();
 			return facCom;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -170,15 +168,15 @@ public class RestGet {
 
 	}
 	
-	// http://localhost:8081/librosElectronicosApi/tipoget/facturaVenta/20171000/20514917001/01/SOL
+	// http://localhost:8081/librosElectronicosApi/tipoget/facturaVenta
 	@GET
-	@Path("/facturaVenta/{periodo}/{codpro}/{tipodoc}/{moneda}")
+	@Path("/facturaVenta")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<ClFacturaVenta> facturVenta(@PathParam("periodo") String periodo,
+	public ArrayList<ClFacturaVenta> facturVenta(/*@PathParam("periodo") String periodo,
 			@PathParam("cliente") String cliente, @PathParam("tipoD") String tipoD,
-			@PathParam("moneda") String moneda) {
+			@PathParam("moneda") String moneda*/ ) {
 		try {
-			ArrayList<ClFacturaVenta> facCom = new GestionFacturaVentas().reporteVentas(periodo, cliente, tipoD, moneda);
+			ArrayList<ClFacturaVenta> facCom = new GestionFacturaVentas().listado();
 			return facCom;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
