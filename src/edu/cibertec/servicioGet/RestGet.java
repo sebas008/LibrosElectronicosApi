@@ -22,7 +22,6 @@ import edu.cibertec.beans.TblTipoDoc;
 import edu.cibertec.beans.TblTipoPer;
 import edu.cibertec.beans.TblTipoPro;
 import edu.cibertec.beans.TblTipoRet;
-import edu.cibertec.beans.UsuarioDTO;
 import edu.cibertec.service.GestionConPago;
 import edu.cibertec.service.GestionFacturaCompra;
 import edu.cibertec.service.GestionFacturaVentas;
@@ -37,7 +36,6 @@ import edu.cibertec.service.GestionTblTipoDoc;
 import edu.cibertec.service.GestionTblTipoPer;
 import edu.cibertec.service.GestionTblTipoPro;
 import edu.cibertec.service.GestionTblTipoRet;
-import edu.cibertec.service.GestionUsuario;
 
 @Path("/tipoget")
 public class RestGet {
@@ -195,7 +193,7 @@ public class RestGet {
 
 	}
 	
-	// http://localhost:8081/librosElectronicosApi/tipoget/MntCliente
+	// http://localhost:8081/librosElectronicosApi/tipoget/MntCli
 
 	@GET
 	@Path("/MntCli")
@@ -212,9 +210,9 @@ public class RestGet {
 		return null;
 	}
 
-	// http://localhost:8081/librosElectronicosApi/tipoget/TblTipoPro
+	// http://localhost:8081/librosElectronicosApi/tipoget/TipoPro
 	@GET
-	@Path("/TblTipoPro")
+	@Path("/TipoPro")
 	@Produces(MediaType.APPLICATION_JSON)
 
 	public List<TblTipoPro> obtenerTblTipoPro() {
@@ -228,10 +226,10 @@ public class RestGet {
 		return null;
 	}
 
-	// http://localhost:8081/librosElectronicosApi/tipoget/TblTipoRet
+	// http://localhost:8081/librosElectronicosApi/tipoget/TipoRet
 
 	@GET
-	@Path("/tblTipoRet")
+	@Path("/TipoRet")
 	@Produces(MediaType.APPLICATION_JSON)
 
 	public List<TblTipoRet> obtenerTblTipoRet() {
@@ -248,10 +246,10 @@ public class RestGet {
 
 	}
 	
-	// http://localhost:8081/librosElectronicosApi/tipoget/TblTipoDoc
+	// http://localhost:8081/librosElectronicosApi/tipoget/TipoDoc
 	
 	@GET
-	@Path("/TblTipoDoc")
+	@Path("/TipoDoc")
 	@Produces(MediaType.APPLICATION_JSON)
 	
 	public List<TblTipoDoc> obtenerTblTipoDoc(){
@@ -271,11 +269,11 @@ public class RestGet {
 		
 	}
 	
-	// http://localhost:8081/librosElectronicosApi/tipoget/TblEstadoDoc
+	// http://localhost:8081/librosElectronicosApi/tipoget/EstadoDoc
 	
 	
 	@GET
-	@Path("/TblEstadoDoc")
+	@Path("/EstadoDoc")
 	
 	public List<TblEstadoDoc> obtenerTblEstadoDoc(){
 		

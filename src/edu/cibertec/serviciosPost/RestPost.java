@@ -1,10 +1,7 @@
 package edu.cibertec.serviciosPost;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -12,21 +9,33 @@ import javax.ws.rs.core.MediaType;
 
 import edu.cibertec.beans.ClFacturaCompra;
 import edu.cibertec.beans.ClFacturaVenta;
+import edu.cibertec.beans.MntCliente;
 import edu.cibertec.beans.MntProveedor;
 import edu.cibertec.beans.MntTipoCambio;
 import edu.cibertec.beans.TblCondPago;
+import edu.cibertec.beans.TblEstadoDoc;
 import edu.cibertec.beans.TblMoneda;
+import edu.cibertec.beans.TblTipoCli;
 import edu.cibertec.beans.TblTipoCom;
+import edu.cibertec.beans.TblTipoDoc;
 import edu.cibertec.beans.TblTipoPer;
+import edu.cibertec.beans.TblTipoPro;
+import edu.cibertec.beans.TblTipoRet;
 import edu.cibertec.beans.UsuarioDTO;
 import edu.cibertec.service.GestionConPago;
 import edu.cibertec.service.GestionFacturaCompra;
 import edu.cibertec.service.GestionFacturaVentas;
+import edu.cibertec.service.GestionMntCliente;
 import edu.cibertec.service.GestionMntProveedor;
 import edu.cibertec.service.GestionMntTipoCambio;
+import edu.cibertec.service.GestionTblEstadoDoc;
 import edu.cibertec.service.GestionTblMoneda;
+import edu.cibertec.service.GestionTblTipoCli;
 import edu.cibertec.service.GestionTblTipoCom;
+import edu.cibertec.service.GestionTblTipoDoc;
 import edu.cibertec.service.GestionTblTipoPer;
+import edu.cibertec.service.GestionTblTipoPro;
+import edu.cibertec.service.GestionTblTipoRet;
 import edu.cibertec.service.GestionUsuario;
 
 @Path("/tipopost")
@@ -285,5 +294,139 @@ public class RestPost {
 
 	}
 */
+
+		// http://localhost:8081/librosElectronicosApi/tipopost/registrarTipoCli
+		@POST
+		@Path("/registrarTipoCli")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarTipoCli(TblTipoCli tc) {
+			System.out.println("Entrando al servicio Post-registrarTipoCli()");
+			try {
+			new GestionTblTipoCli().registrar(tc);
+
+				System.out.println("Codigo: " + tc.getCodigo());
+				System.out.println("Descripcion: " + tc.getDescripcion());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de tipo cliente correctamente";
+
+		}	
+		
+		// http://localhost:8081/librosElectronicosApi/tipopost/registrarCliente
+		@POST
+		@Path("/registrarCliente")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarCli(MntCliente c) {
+			System.out.println("Entrando al servicio Post-registrarCli()");
+			try {
+			new GestionMntCliente().Registrar(c);
+
+				System.out.println("Codigo: " + c.getCodigo());
+				System.out.println("Descripcion: " + c.getDescripcion());
+				System.out.println("Tipo Persona: " + c.getTipoPer());
+				System.out.println("Tipo Cliente: " + c.getTipoCli());
+				System.out.println("Direccion: " + c.getDireccion());
+				System.out.println("COntacto: " + c.getContacto());
+				System.out.println("Telefono: " + c.getTelefono());
+				System.out.println("Condicion Pago: " + c.getCondPago());
+				System.out.println("Correo: " + c.getCorreo());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de cliente correctamente";
+
+		}	
 	
+
+		// http://localhost:8081/librosElectronicosApi/tipopost/registrarTipoPro
+		@POST
+		@Path("/registrarTipoPro")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarTipoCli(TblTipoPro tp) {
+			System.out.println("Entrando al servicio Post-registrarTipoCli()");
+			try {
+			new GestionTblTipoPro().registrar(tp);
+
+				System.out.println("Codigo: " + tp.getCodigo());
+				System.out.println("Descripcion: " + tp.getDescripcion());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de tipo producto correctamente";
+
+		}	
+		
+		// http://localhost:8081/librosElectronicosApi/tipopost/registrarTipoRet
+		@POST
+		@Path("/registrarTipoRet")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarTipoRet(TblTipoRet tr) {
+			System.out.println("Entrando al servicio Post-registrarTipoRet()");
+			try {
+			new GestionTblTipoRet().registrar(tr);
+
+				System.out.println("Codigo: " + tr.getCodigo());
+				System.out.println("Descripcion: " + tr.getDescripcion());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de tipo retencion correctamente";
+
+		}	
+		
+		// http://localhost:8081/librosElectronicosApi/tipopost/registrarTipoDoc
+		@POST
+		@Path("/registrarTipoDoc")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarTipoDoc(TblTipoDoc td) {
+			System.out.println("Entrando al servicio Post-registrarTipoRet()");
+			try {
+			new GestionTblTipoDoc().registrar(td);
+
+				System.out.println("Codigo: " + td.getCodigo());
+				System.out.println("Descripcion: " + td.getDescripcion());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de tipo documento correctamente";
+
+		}
+		
+		// http://localhost:8081/librosElectronicosApi/tipopost/registrarEstadoDoc
+		@POST
+		@Path("/registrarEstadoDoc")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String registrarEstadoDoc(TblEstadoDoc ed) {
+			System.out.println("Entrando al servicio Post-registrarEstadoDoc()");
+			try {
+			new GestionTblEstadoDoc().registrar(ed);
+
+				System.out.println("Codigo: " + ed.getCodigo());
+				System.out.println("Descripcion: " + ed.getDescripcion());
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "Registro de estado documento correctamente";
+
+		}	
+		
 }
