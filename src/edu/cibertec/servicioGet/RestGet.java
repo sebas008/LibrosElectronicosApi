@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -288,5 +289,22 @@ public class RestGet {
 		return null;
 	}
 	
+	
+	
+	// http://localhost:8081/librosElectronicosApi/tipoget/facturaVenta/20171100/10407147982
+	@GET
+	@Path("/facturaVenta/{periodo}/{cliente}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<ClFacturaVenta> facturVentaxPeriodo(@PathParam("periodo") String periodo, @PathParam("cliente") String cliente)/*@PathParam("periodo") String periodo,
+	@PathParam("cliente") String cliente, @PathParam("tipoD") String tipoD,
+	@PathParam("moneda") String moneda*/ {
+		try {
+			ArrayList<ClFacturaVenta> facCom = new GestionFacturaVentas().listado();
+			return facCom;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
 	
 }
