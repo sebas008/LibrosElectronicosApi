@@ -3,6 +3,7 @@ package edu.cibertec.dao;
 import edu.cibertec.interfaces.InterfaceCondPago;
 import edu.cibertec.interfaces.InterfaceFacturaCompra;
 import edu.cibertec.interfaces.InterfaceFacturaVenta;
+import edu.cibertec.interfaces.InterfaceFacturaVentaDto;
 import edu.cibertec.interfaces.InterfaceMntCliente;
 import edu.cibertec.interfaces.InterfaceMntProveedor;
 import edu.cibertec.interfaces.InterfaceMntTipoCambio;
@@ -44,6 +45,7 @@ public abstract class DAOFactory {
     public abstract InterfaceMntProveedor getInterfaceMntProveedorDAO();
     public abstract InterfaceFacturaCompra getInterfaceFacturaCompraDAO();
     public abstract InterfaceFacturaVenta getInterfaceFacturaVentaDAO();
+    public abstract InterfaceFacturaVentaDto getInterfaceFacturaVentaDtoDAO();
     
     //Método estático que obtiene la implementación según BD seleccionada 
     public static DAOFactory getDAOFactory(int whichFactory){

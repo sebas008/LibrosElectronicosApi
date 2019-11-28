@@ -59,4 +59,6 @@ public class GestionFacturaVentas implements InterfaceFacturaVenta{
 		return dao.obtener(cliente, serie, numero);
 	}
 
+
+
 }

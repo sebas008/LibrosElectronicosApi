@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import edu.cibertec.beans.ClFacturaCompra;
 import edu.cibertec.beans.ClFacturaVenta;
+import edu.cibertec.beans.FacturaVentaDTO;
 import edu.cibertec.beans.MntCliente;
 import edu.cibertec.beans.MntProveedor;
 import edu.cibertec.beans.MntTipoCambio;
@@ -25,6 +26,7 @@ import edu.cibertec.beans.TblTipoPro;
 import edu.cibertec.beans.TblTipoRet;
 import edu.cibertec.service.GestionConPago;
 import edu.cibertec.service.GestionFacturaCompra;
+import edu.cibertec.service.GestionFacturaVentaDTO;
 import edu.cibertec.service.GestionFacturaVentas;
 import edu.cibertec.service.GestionMntCliente;
 import edu.cibertec.service.GestionMntProveedor;
@@ -275,7 +277,7 @@ public class RestGet {
 	
 	@GET
 	@Path("/EstadoDoc")
-	
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<TblEstadoDoc> obtenerTblEstadoDoc(){
 		
 		try {
@@ -300,6 +302,21 @@ public class RestGet {
 	@PathParam("moneda") String moneda*/ {
 		try {
 			ArrayList<ClFacturaVenta> facCom = new GestionFacturaVentas().listado();
+			return facCom;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
+	
+	// http://localhost:8081/librosElectronicosApi/tipoget/facturVentaPeriodoxTotal/20171100/236
+	@GET
+	@Path("/facturVentaPeriodoxTotal/{periodo}/{total}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<FacturaVentaDTO> facturVentaPeriodoxTotal(@PathParam("periodo") String periodo, @PathParam("total") String total) {
+		try {
+			ArrayList<FacturaVentaDTO> facCom = new GestionFacturaVentaDTO().periodoxTotal(periodo, total);
 			return facCom;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

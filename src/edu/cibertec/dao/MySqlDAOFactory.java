@@ -3,6 +3,7 @@ package edu.cibertec.dao;
 import edu.cibertec.interfaces.InterfaceCondPago;
 import edu.cibertec.interfaces.InterfaceFacturaCompra;
 import edu.cibertec.interfaces.InterfaceFacturaVenta;
+import edu.cibertec.interfaces.InterfaceFacturaVentaDto;
 import edu.cibertec.interfaces.InterfaceMntCliente;
 import edu.cibertec.interfaces.InterfaceMntProveedor;
 import edu.cibertec.interfaces.InterfaceMntTipoCambio;
@@ -113,6 +114,12 @@ public class MySqlDAOFactory extends DAOFactory {
 	public InterfaceFacturaVenta getInterfaceFacturaVentaDAO() {
 		// TODO Auto-generated method stub
 		return new MySqlFacturaVentaDAO();
+	}
+
+	@Override
+	public InterfaceFacturaVentaDto getInterfaceFacturaVentaDtoDAO() {
+		// TODO Auto-generated method stub
+		return new MySqlFacturaVentaDtoDAO();
 	}
 
 }

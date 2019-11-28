@@ -24,4 +24,6 @@ public interface InterfaceFacturaVenta {
 	public ArrayList<ClFacturaVenta> reporteVentas(String periodo, String cliente, String tipoD, String moneda);
 	
 	public ClFacturaVenta obtener(String cliente, String serie, String numero);
+	
+	
 }
