@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import edu.cibertec.beans.ClFacturaVenta;
+import edu.cibertec.beans.ReporteVentaPorPeriodo;
 import edu.cibertec.interfaces.InterfaceFacturaVenta;
 import edu.cibertec.utils.MySQLConexion;
 
@@ -404,6 +405,46 @@ public class MySqlFacturaVentaDAO implements InterfaceFacturaVenta {
 		return f;
 	
 		
+	}
+
+	@Override
+	public ArrayList<ReporteVentaPorPeriodo> periodoxtotal() {
+		ArrayList<ReporteVentaPorPeriodo> lista = new ArrayList<ReporteVentaPorPeriodo>();
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "{call usp_total_venta_por_periodo()}";
+			pst = con.prepareStatement(sql);
+
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				ReporteVentaPorPeriodo f = new ReporteVentaPorPeriodo();
+				f.setPeriodo(rs.getString(1));
+				f.setSuma(rs.getDouble(2));
+
+
+				lista.add(f);
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("Se suscito la siguiente Excepcion: " + e.getMessage());
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				System.out.println("Error al Cerrar: " + e.getMessage());
+			}
+		}
+
+		return lista;
 	}
 
 	

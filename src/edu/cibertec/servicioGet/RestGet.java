@@ -15,6 +15,7 @@ import edu.cibertec.beans.FacturaVentaDTO;
 import edu.cibertec.beans.MntCliente;
 import edu.cibertec.beans.MntProveedor;
 import edu.cibertec.beans.MntTipoCambio;
+import edu.cibertec.beans.ReporteVentaPorPeriodo;
 import edu.cibertec.beans.TblCondPago;
 import edu.cibertec.beans.TblEstadoDoc;
 import edu.cibertec.beans.TblMoneda;
@@ -302,6 +303,21 @@ public class RestGet {
 	@PathParam("moneda") String moneda*/ {
 		try {
 			ArrayList<ClFacturaVenta> facCom = new GestionFacturaVentas().listado();
+			return facCom;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
+	
+	// http://localhost:8081/librosElectronicosApi/tipoget/sumaVentasPorPeriodo
+	@GET
+	@Path("/sumaVentasPorPeriodo")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<ReporteVentaPorPeriodo> facturVentaxPeriodo() {
+		try {
+			ArrayList<ReporteVentaPorPeriodo> facCom = new GestionFacturaVentas().periodoxtotal();
 			return facCom;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

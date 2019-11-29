@@ -3,6 +3,7 @@ package edu.cibertec.interfaces;
 import java.util.ArrayList;
 
 import edu.cibertec.beans.ClFacturaVenta;
+import edu.cibertec.beans.ReporteVentaPorPeriodo;
 
 public interface InterfaceFacturaVenta {
 	// Registrar Factura
@@ -24,6 +25,8 @@ public interface InterfaceFacturaVenta {
 	public ArrayList<ClFacturaVenta> reporteVentas(String periodo, String cliente, String tipoD, String moneda);
 	
 	public ClFacturaVenta obtener(String cliente, String serie, String numero);
+	
+	public ArrayList<ReporteVentaPorPeriodo> periodoxtotal();
 	
 	
 }

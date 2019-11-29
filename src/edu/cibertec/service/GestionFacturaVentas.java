@@ -3,6 +3,7 @@ package edu.cibertec.service;
 import java.util.ArrayList;
 
 import edu.cibertec.beans.ClFacturaVenta;
+import edu.cibertec.beans.ReporteVentaPorPeriodo;
 import edu.cibertec.dao.DAOFactory;
 import edu.cibertec.interfaces.InterfaceFacturaVenta;
 
@@ -57,6 +58,12 @@ public class GestionFacturaVentas implements InterfaceFacturaVenta{
 	public ClFacturaVenta obtener(String cliente, String serie, String numero) {
 		// TODO Auto-generated method stub
 		return dao.obtener(cliente, serie, numero);
+	}
+
+	@Override
+	public ArrayList<ReporteVentaPorPeriodo> periodoxtotal() {
+		// TODO Auto-generated method stub
+		return dao.periodoxtotal();
 	}
 
 
